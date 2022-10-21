@@ -37,7 +37,7 @@ jobs:
         working-directory: ./tests/test-a
         run: |
           mkdir ./tmp
-          cp *.tf ./tmp
+          cp *.tf ./tmp/
           echo "-- ./tmp --"
           ls -l ./tmp
           terraform init -input=false
