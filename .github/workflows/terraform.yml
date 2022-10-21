@@ -36,10 +36,10 @@ jobs:
         id: init
         working-directory: ./tests/test-a
         run: |
-          echo "Runner Temp Dir"
-          echo ${{ runner.temp }}
-          echo "PWD"
-          pwd
+          mkdir ./tmp
+          cp *.tf ./tmp
+          echo "-- ./tmp --"
+          ls -l ./tmp
           terraform init -input=false
 
         # run: |
