@@ -38,7 +38,7 @@ jobs:
         run: |
           terraform init -input=false
           echo ".terraform/modules"
-          cat .terraform/modules
+          ls -al .terraform/modules
           echo ""
         # run: |
         #   cd tests/${{ matrix.path }}
