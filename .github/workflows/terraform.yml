@@ -36,12 +36,11 @@ jobs:
         id: init
         working-directory: ./tests/test-a
         run: |
-          echo "ls -al /home/runner/work/tf-module-development/tf-module-development"
-          ls -al /home/runner/work/tf-module-development/tf-module-development
+          mkdir ./tmp
+          cp ../../*.tf ./tmp
+          echo "-- ./tmp --"
+          ls -al ./tmp
           terraform init -input=false
-          echo ".terraform/modules/modules.json"
-          cat  .terraform/modules/modules.json
-          echo ""
         # run: |
         #   cd tests/${{ matrix.path }}
         #   terraform init -input=false
