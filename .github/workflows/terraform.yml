@@ -34,19 +34,24 @@ jobs:
 
       - name: Terraform Init
         id: init
-        # run: terraform init
         run: |
-          cd tests/${{ matrix.path }}
+          cd tests/test-a
           terraform init -input=false
+        # run: |
+        #   cd tests/${{ matrix.path }}
+        #   terraform init -input=false
 
       - name: Terraform Plan
         id: plan
         continue-on-error: true
+        run: |
+          cd tests/test-a
+          terraform plan -no-color -input=false
         # if: github.event_name == 'pull_request'
         # run: terraform plan -no-color -input=false
-        run: |
-          cd tests/${{ matrix.path }}
-          terraform plan -input=false -no-color
+        # run: |
+        #   cd tests/${{ matrix.path }}
+        #   terraform plan -input=false -no-color
 
       # - uses: actions/github-script@v6
       #   if: github.event_name == 'pull_request'
