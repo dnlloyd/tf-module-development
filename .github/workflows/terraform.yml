@@ -34,9 +34,9 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: |
-          cd tests/test-a
-          terraform init -input=false
+        working-directory: ./tests/test-a
+        run: terraform init -input=false
+
         # run: |
         #   cd tests/${{ matrix.path }}
         #   terraform init -input=false
@@ -44,9 +44,8 @@ jobs:
       - name: Terraform Plan
         id: plan
         continue-on-error: true
-        run: |
-          cd tests/test-a
-          terraform plan -no-color -input=false
+        working-directory: ./tests/test-a
+        run: terraform plan -no-color -input=false
         # if: github.event_name == 'pull_request'
         # run: terraform plan -no-color -input=false
         # run: |
