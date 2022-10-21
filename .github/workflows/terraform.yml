@@ -36,8 +36,7 @@ jobs:
         id: init
         working-directory: ./tests/test-a
         run: |
-          echo "../.."
-          ls -l ../../
+          echo ${{ runner.temp }}
           terraform init -input=false
 
         # run: |
