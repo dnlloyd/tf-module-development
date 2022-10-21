@@ -36,8 +36,8 @@ jobs:
         id: init
         working-directory: ./tests/test-a
         run: |
-          echo "Hello"
-          pwd
+          echo "../.."
+          ls -l ../../
           terraform init -input=false
 
         # run: |
