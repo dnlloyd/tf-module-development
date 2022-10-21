@@ -9,7 +9,7 @@ on:
 jobs:
   terraform:
     name: 'Terraform-module-test'
-    env:
+    # env:
       # TF_WORKSPACE: module-development
     runs-on: ubuntu-latest
     steps:
