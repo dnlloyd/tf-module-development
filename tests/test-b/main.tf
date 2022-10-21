@@ -20,7 +20,7 @@ terraform {
   }
 }
 
-module "test" {
+module "test_b" {
   source = "../../"
   bucket_name = "Bucket-B"
 }
