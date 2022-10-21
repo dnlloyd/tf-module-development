@@ -21,7 +21,7 @@ terraform {
 }
 
 module "test_a" {
-  source = ".//../../"
+  source = "/home/runner/work/tf-module-development/tf-module-development"
   # bucket_name = "Bucket-A"
 }
 

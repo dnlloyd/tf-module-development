@@ -36,6 +36,8 @@ jobs:
         id: init
         working-directory: ./tests/test-a
         run: |
+          echo "ls -al /home/runner/work/tf-module-development/tf-module-development"
+          ls -al /home/runner/work/tf-module-development/tf-module-development
           terraform init -input=false
           echo ".terraform/modules/modules.json"
           cat  .terraform/modules/modules.json
