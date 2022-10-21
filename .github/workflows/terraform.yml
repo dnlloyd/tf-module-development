@@ -35,7 +35,9 @@ jobs:
       - name: Terraform Init
         id: init
         working-directory: ./tests/test-a
-        run: terraform init -input=false
+        run: |
+          echo "Hello"
+          terraform init -input=false
 
         # run: |
         #   cd tests/${{ matrix.path }}
