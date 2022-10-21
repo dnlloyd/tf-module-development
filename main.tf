@@ -5,5 +5,6 @@ data "aws_s3_bucket" "selected" {
 variable "bucket_name" {}
 
 resource "aws_s3_bucket" "bucket" {
-  bucket = var.bucket_name
+  # bucket_prefix = var.bucket_name
+  bucket_prefix = "testies"
 }

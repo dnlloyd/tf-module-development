@@ -22,5 +22,5 @@ terraform {
 
 module "test_a" {
   source = "../../"
-  bucket_name = "Bucket-A"
+  # bucket_name = "Bucket-A"
 }
