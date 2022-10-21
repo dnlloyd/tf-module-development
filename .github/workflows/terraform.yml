@@ -37,8 +37,8 @@ jobs:
         working-directory: ./tests/test-a
         run: |
           terraform init -input=false
-          echo ".terraform/modules"
-          ls -al .terraform/modules
+          echo ".terraform/modules/modules.json"
+          cat  .terraform/modules/modules.json
           echo ""
         # run: |
         #   cd tests/${{ matrix.path }}
