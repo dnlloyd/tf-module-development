@@ -10,12 +10,12 @@ jobs:
   terraform:
     name: 'Terraform-module-test'
     runs-on: ubuntu-latest
-    # strategy:
-    #   fail-fast: false
-    #   matrix:
-    #     path:
-    #       - test-a
-    #       - test-b
+    strategy:
+      fail-fast: false
+      matrix:
+        path:
+          - test-a
+          - test-b
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -26,12 +26,10 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TF_MODULE_DEVELOPMENT }}
       
       - name: Module path prep
-        working-directory: ./tests/test-a
+        working-directory: ./tests/${{ matrix.path }}
         run: |
           mkdir ./tmp
           cp ../../*.tf ./tmp
-          echo "-- ./tmp --"
-          ls -al ./tmp
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -42,13 +40,13 @@ jobs:
 
       - name: Terraform Init
         id: init
-        working-directory: ./tests/test-a
+        working-directory: ./tests/${{ matrix.path }}
         run: terraform init -input=false
 
       - name: Terraform Plan
         id: plan
         continue-on-error: true
-        working-directory: ./tests/test-a
+        working-directory: ./tests/${{ matrix.path }}
         run: terraform plan -no-color -input=false
         # if: github.event_name == 'pull_request'
         # run: terraform plan -no-color -input=false
