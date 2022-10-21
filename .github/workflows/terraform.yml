@@ -37,6 +37,7 @@ jobs:
         # run: terraform init
         run: |
           cd tests/${{ matrix.path }}
+          pwd
           terraform init -input=false
 
       - name: Terraform Plan
@@ -46,6 +47,7 @@ jobs:
         # run: terraform plan -no-color -input=false
         run: |
           cd tests/${{ matrix.path }}
+          pwd
           terraform plan -input=false -no-color
 
       # - uses: actions/github-script@v6
