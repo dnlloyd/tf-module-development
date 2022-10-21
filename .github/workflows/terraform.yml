@@ -26,6 +26,7 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TF_MODULE_DEVELOPMENT }}
       
       - name: Module path prep
+        working-directory: ./tests/test-a
         run: |
           mkdir ./tmp
           cp ../../*.tf ./tmp
